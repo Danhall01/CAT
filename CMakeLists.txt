@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 4.0.2)
-project(GCLIB VERSION 0.1)
+project(CAuxTools VERSION 0.1)
 
-set(LIB "wecl")
+set(LIB "cat")
 
 set(CMAKE_C_STANDARD ${CMAKE_C_STANDARD_LATEST})
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -16,12 +16,7 @@ add_subdirectory(src)
 target_include_directories(${LIB} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 
-option(TEST_MODE "Enable or disable compiling the tests in tests folder (INSTEAD of library)" OFF)
-if(TEST_MODE) # Compile test directory
-    set(TEST "wecl_tests")
-    add_executable(${TEST})
-    add_subdirectory(tests)
+option(ENABLE_TESTS "Enable or disable compiling the tests in tests folder (INSTEAD of library)" OFF)
+if(ENABLE_TESTS) # Compile test directory
 
-    target_include_directories(${TEST} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
-    target_link_libraries(${TEST} ${LIB})
 endif()
