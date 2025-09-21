@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 4.0.2)
 project(CAuxTools VERSION 0.1)
 
 set(LIB "cat")
+enable_testing()
 
 set(CMAKE_C_STANDARD ${CMAKE_C_STANDARD_LATEST})
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -15,8 +16,4 @@ add_library(${LIB} STATIC)
 add_subdirectory(src)
 target_include_directories(${LIB} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
-
-option(ENABLE_TESTS "Enable or disable compiling the tests in tests folder (INSTEAD of library)" OFF)
-if(ENABLE_TESTS) # Compile test directory
-
-endif()
+add_subdirectory(tests)
