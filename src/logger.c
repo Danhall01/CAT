@@ -238,6 +238,9 @@ PRIVATE int32_t _PrintA(
     va_list                vargs
 )  // clang-format on
 {
+    if ((int16_t)severity < (int16_t)g_state_s.visability)
+        return 0;
+
     const char* fmt    = CAT_LOGGER_FORMAT;
     const char* prefix = "";
     switch (severity)
